@@ -15,7 +15,8 @@ connectDB();
 // Intialize Middlewares
 app.use(express.json())
 app.use(cors({
-    origin: "https://bg-remover-2.vercel.app", // or your frontend domain
+    origin: "https://bg-remover-2.vercel.app",
+    origin:"https://bg-remover-2.vercel.app//api/user/pay-razor", // or your frontend domain
     credentials: true
 }));
 
