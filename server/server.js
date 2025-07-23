@@ -14,7 +14,10 @@ connectDB();
 
 // Intialize Middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: "https://bg-remover-2.vercel.app", // or your frontend domain
+    credentials: true
+}));
 
 // API routes
 app.use('/api/user',userRouter)
