@@ -11,7 +11,6 @@ const app = express();
 
 // Connect to database
 connectDB();
-
 // CORS configuration for Vercel deployment
 app.use(cors({
   origin: ['http://localhost:5173', 'http://localhost:3000', 'https://your-frontend-domain.com'],
@@ -19,7 +18,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token']
 }));
-
 app.use(express.json())
 
 
