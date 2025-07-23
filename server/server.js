@@ -8,7 +8,9 @@ import imageRouter from './routes/imageRoutes.js';
 // App Config
 const PORT = process.env.PORT || 4000
 const app = express();
-await connectDB()
+
+// Connect to database
+connectDB();
 
 // Intialize Middlewares
 app.use(express.json())
