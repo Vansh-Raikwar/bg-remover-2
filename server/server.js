@@ -8,7 +8,12 @@ import imageRouter from './routes/imageRoutes.js';
 // App Config
 const PORT = process.env.PORT || 4000
 const app = express();
-
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000'], // Add your frontend URLs
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization','token']
+}))
 // Connect to database
 connectDB();
 
