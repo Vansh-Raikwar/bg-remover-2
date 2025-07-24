@@ -13,7 +13,12 @@ const app = express();
 connectDB();
 // CORS configuration for Vercel deployment
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000', 'https://bg-remover-2.vercel.app/'],
+  origin: [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://bg-remover-2.vercel.app',
+  'https://bg-remover-2-7mfz.vercel.app'
+],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token']
