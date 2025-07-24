@@ -19,7 +19,13 @@ const Navbar = () => {
 
     return (
         <div className='flex items-center justify-between mx-4 py-3 lg:mx-44 '>
-            <Link to={'/'}><img className='w-32 sm:w-44' src={assets.logo} alt="" /></Link>
+            
+            <Link to={'/'}>
+                <div className='flex items-center justify-center gap-4'>
+                    <img className=' sm:w-10 w-10' src={assets.logo_icon} alt="" />
+                    <p className='font-[500] text-3xl'>RemoviFy</p>
+                </div>
+            </Link>
             {isSignedIn
                 ? <div className='flex items-center gap-2 sm:gap-3'>
                     <button onClick={() => navigate('/buy')} className='flex items-center gap-2 bg-blue-100 px-4 sm:px-7 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-700'>
