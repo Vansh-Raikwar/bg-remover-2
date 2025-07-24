@@ -1,7 +1,6 @@
 import { useAuth, useClerk, useUser } from "@clerk/clerk-react";
 import { createContext, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import { toast } from "react-toastify";
 
 
@@ -17,12 +16,19 @@ const AppContextProvider = (props) => {
     const { openSignIn } = useClerk()
     const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-    const [credit, setCredit] = useState(false)
+    const [credit, setCredit] = useState(0)
 
     const loadCreditsData = async () => {
         try {
             const token = await getToken()
-            const { data } = await axios.get(backendUrl + '/api/user/credits', { headers: { token } })
+            const response = await fetch(backendUrl + '/api/user/credits', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'token': token
+                }
+            })
+            const data = await response.json()
             if (data.success) {
                 setCredit(data.credits)
             }
@@ -50,7 +56,14 @@ const AppContextProvider = (props) => {
             const formData = new FormData()
             image && formData.append('image', image)
 
-            const { data } = await axios.post(backendUrl + '/api/image/remove-bg', formData, { headers: { token } })
+            const response = await fetch(backendUrl + '/api/image/remove-bg', {
+                method: 'POST',
+                headers: {
+                    'token': token
+                },
+                body: formData
+            })
+            const data = await response.json()
 
             if (data.success) {
                 setResultImage(data.resultImage)

@@ -15,7 +15,7 @@ const razorpayInstance = new razorpay({
 const clerkWebhooks = async (req, res) => {
 
     try {
-
+        console.log("hello world")
         // Create a Svix instance with clerk webhook secret.
         const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET)
 
