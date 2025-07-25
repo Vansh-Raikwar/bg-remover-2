@@ -29,7 +29,7 @@ const Steps = () => {
                     <img className='max-w-9' src={assets.download_icon} alt="" />
                     <div>
                         <p className='text-xl font-medium'>Download image</p>
-                        <p className='text-sm text-neutral-500 mt-1'>TDownload your edited images instantly in high quality. <br /> TNo watermark, completely free.</p>
+                        <p className='text-sm text-neutral-500 mt-1'>Download your edited images instantly in high quality. <br /> No watermark, completely free.</p>
                     </div>
                 </div>
 
